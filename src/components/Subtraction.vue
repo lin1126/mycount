@@ -1,12 +1,21 @@
 <template>
   <div>
-    <h3>当前count的值为</h3>
-    <button>+1</button>
+    <h3>当前count的值为{{ count }}</h3>
+    <button @click="sub">-1</button>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapState, mapMutations } from 'vuex'
+export default {
+  name: 'my-subtraction',
+  methods: {
+    ...mapMutations(['sub']),
+  },
+  computed: {
+    ...mapState(['count']),
+  },
+}
 </script>
 
 <style></style>
